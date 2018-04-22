@@ -1,18 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import TopNav from './topNav.jsx';
+import TabList from './tabList.jsx';
 
 class Layout extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            panes: []
+        }
     }
 
     render() {
         return (
             <div>
-                Layout
+                <TopNav />
+                <TabList panes={this.state.panes}/>
                 {this.props.children}
             </div>
         )
     }
 }
 
-export default Layout;
+const mapStateToProps = (state) => ({
+
+})
+const mapDispatchToProps = (dispatch) => ({
+
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);
