@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const initialState = {};
+const initialState = {name: 'zhangsan', age: 18};
 const USERINFO_UPDATE = 'USERINFO_UPDATE';
 const userinfo  = (state = initialState, action) => {
     switch (action.type) {

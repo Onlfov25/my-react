@@ -17,13 +17,14 @@ class Layout extends React.Component {
                 <TopNav />
                 <TabList panes={this.state.panes}/>
                 {this.props.children}
+                <span>{this.props.name}</span>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-
+    name: state.userinfo.name
 })
 const mapDispatchToProps = (dispatch) => ({
 

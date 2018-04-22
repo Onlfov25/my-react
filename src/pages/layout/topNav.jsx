@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu, Avatar, Dropdown } from 'antd';
-
+import PropTypes from 'prop-types'
 const { Header } = Layout;
 /**
  * @description 头部导航栏
@@ -9,11 +9,14 @@ const { Header } = Layout;
  * @extends {React.Component}
  */
 class TopNav extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
     }
 
     render() {
+            const {store} = this.context;
+            const state = store.getState();
+
         const menu1 = (
             <Menu>
                 <Menu.Item key="0">
@@ -31,7 +34,7 @@ class TopNav extends React.Component {
                     <div className="logo"><i>档案信息</i>管理系统</div>
                     <div className="user">
                         <Avatar icon="user" shape="circle" className="usrIcon"/><span>你好,&nbsp;&nbsp;<b>管理员</b></span>
-                        <span>2018年4月18日 星期三</span>
+                        <span>2018年4月18日 星期三{state.userinfo.age}</span>
                     </div>
                     <Menu className="nav" mode="horizontal">
                         <Menu.Item key="2">
@@ -46,4 +49,7 @@ class TopNav extends React.Component {
     }
 }
 
+TopNav.contextTypes = {
+    store: PropTypes.object
+}
 export default TopNav;

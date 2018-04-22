@@ -10,7 +10,7 @@ class TabList extends React.Component {
         this.handleTabChange = this.handleTabChange.bind(this)
         this.handleOnEdit = this.handleOnEdit.bind(this)
     }
-    
+
     handleTabChange(activeKey) {
         this.props.onChange(activeKey);
     }
@@ -22,7 +22,7 @@ class TabList extends React.Component {
         return (
             
             <Tabs type="editable-card" hideAdd onChange={this.handleTabChange} activeKey={this.props.activeKey} onEdit={this.handleOnEdit}>
-                this.props.panes.map(pane => <TabPane tab={panel.title} key={panel.key}></TabPane>)
+                {this.props.panes.map(pane => <TabPane tab={panel.title} key={panel.key}></TabPane>)}
             </Tabs>
         )
     }
