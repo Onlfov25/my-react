@@ -23,7 +23,7 @@ class TabList extends React.Component {
         return (
             
             <Tabs type="editable-card" hideAdd onChange={this.handleTabChange} activeKey={this.props.activeKey} onEdit={this.handleOnEdit}>
-                {this.props.panes.map(pane => <TabPane tab={panel.title} key={panel.key}></TabPane>)}
+                {this.props.panes.map(pane => <TabPane tab={pane.title} key={pane.key}></TabPane>)}
             </Tabs>
         )
     }
@@ -41,6 +41,7 @@ TabList.propTypes = {
 
 
 const mapStateToProps = (state) => ({
+    panes: state.addTab.panes
 })
 const mapDispatchToProps = (dispatch) => ({
     onChange: (activeKey) => {
@@ -49,4 +50,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 })
 
-export default TabList;
+export default connect(mapStateToProps, mapDispatchToProps)(TabList);

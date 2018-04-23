@@ -8,16 +8,14 @@ import './index.less';
 class Layout extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            panes: []
-        }
+     
     }
 
     render() {
         return (
             <div>
                 <TopNav />
-                <TabList panes={this.state.panes}/>
+                <TabList />
                 {this.props.children}
                 <span>{this.props.name}</span>
             </div>
@@ -26,7 +24,7 @@ class Layout extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    name: state.userinfo.name
+    name: state.userinfo.name,
 })
 const mapDispatchToProps = (dispatch) => ({
 

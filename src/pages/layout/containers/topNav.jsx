@@ -47,7 +47,7 @@ class TopNav extends React.Component {
         const menus = [
             {id: '1', imgSrc: '../../../images/首页未选中.png', title: '首页', subMenus: []},
             {id: '2', imgSrc: '../../../images/首页未选中.png', title: '预归档', subMenus: [
-                {id: '1', url: 'login', title: '文件著录'},
+                {id: '1', url: 'file', title: '文件著录'},
                 {id: '2', url: 'register', title: '案卷著录'},
             ]},
             {id: '3', imgSrc: '../../../images/首页未选中.png', title: '已归档', subMenus: [
