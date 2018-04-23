@@ -4,6 +4,11 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 import { LocaleProvider } from 'antd';
 import Router from './router.js';
+<<<<<<< HEAD
+=======
+
+// import './reset.less';
+>>>>>>> d2d3ffd0365863c9c08c1feb73b2b1cf481e2f26
 
 // antd组件修改为中文
 import zhCN from 'antd/lib/locale-provider/zh_CN';
