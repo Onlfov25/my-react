@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TopNav from './topNav.jsx';
-import TabList from './tabList.jsx';
+import TopNav from './containers/topNav.jsx';
+import TabList from './containers/tabList.jsx';
+
+import './index.less';
 
 class Layout extends React.Component {
     constructor(props) {

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -37,5 +38,15 @@ TabList.propTypes = {
     onChange: PropTypes.func,
     OnEdit: PropTypes.func
 }
+
+
+const mapStateToProps = (state) => ({
+})
+const mapDispatchToProps = (dispatch) => ({
+    onChange: (activeKey) => {
+        dispatch()
+    }
+
+})
 
 export default TabList;

@@ -1,0 +1,87 @@
+// 页面头部
+#header {
+    height: 76px;
+    padding: 0;
+    line-height: 76px;
+    background-color: rgba(75, 131, 240, 0.4);
+    min-width: 1280px;
+    //logo
+    .logo {
+        width: 346px;
+        height: 76px;
+        float: left;
+        background-color: #4b83f0;
+        .logo-img {
+            width: 76px;
+            height: 76px;
+            float: left;
+            background: #2762d4 url(../../images/档案-4.png) no-repeat center center  
+        }
+        .logo-title {
+            width: 270px;
+            padding-left: 15px;
+            float: right;
+            color: #fff;
+            font-size: 30px;
+            letter-spacing: 1px;
+            i {
+                font-style: normal;
+                font-weight: bold;
+            }
+        }
+    }
+    .user {
+        width: 272px;
+        height: 76px;
+        float: right;
+        position: relative;
+        .userIcon {
+            position: absolute;
+            top: 16px;
+            left: 28px;
+        }
+        .userName {
+            position: absolute;
+            top: 16px;
+            left: 72px;
+            font-size: 24px;
+            line-height: 24px;
+        }
+        .curTime {
+            position: absolute;
+            top: 52px;
+            left: 72px;
+            line-height: 14px;
+            color: rgba(75, 84, 110, 0.7);
+        }
+    }
+    .nav {
+        min-width: 662px;
+        height: 76px;
+        line-height: 76px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 272px 0 346px;
+        padding: 0 44px 0 58px;
+        background-color: #4b83f0;
+        box-shadow: 0px 4px 3px 0px 
+            rgba(204, 204, 204, 0.4);
+        border-bottom: none;
+        a {
+            min-width: 44px;
+            height: 76px;
+            position: relative;
+            img {
+                position: absolute;
+                top: 14px;
+            }
+            span {
+                position: absolute;
+                top: 54px;
+                font-size: 16px;
+                line-height: 16px;
+                color: #fff;
+            }
+        }
+    }
+}
