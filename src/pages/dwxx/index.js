@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Form, Input, Icon, Button } from 'antd';
+import { Card, Form, Input, Icon, Button, Tooltip } from 'antd';
 const FormItem = Form.Item;
 const { TextArea } = Input;
 
@@ -48,13 +48,13 @@ class Dwxx extends React.Component {
         return (
             <Card title="单位信息" id="dwxx" >
                 <Form onSubmit={this.handleSubmit}>
-                    <FormItem label="全宗号" {...formItemLayout}  help="4-10个字符，支持数字、字母">
+                    <FormItem label="全宗号" {...formItemLayout}  help="4-10个字符，支持数字、字母" extra="hello" hasFeedback>
                         {getFieldDecorator('qzh', {
                             rules: [{
                                 required: true, message: '请输入全宗号！'
                             }
                             ]
-                        })(<Input />)}
+                        })(<span><Input /><Tooltip title="3-10个字符"><Icon style={{fontSize: '20px', position: 'absolute',top: '2px'}} type="exclamation-circle" /></Tooltip></span>)}
                     </FormItem>
                     <FormItem label="单位名称" {...formItemLayout}>
                         {getFieldDecorator('dwmc', {

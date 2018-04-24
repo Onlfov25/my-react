@@ -1,6 +1,7 @@
 import React from 'react';
 import ColContainer from '../../components/colContainer.jsx';
-import { Card } from 'antd';
+import { Card, Dropdown } from 'antd';
+import Jmpz from './containers/jmpz.jsx'
 
 /**
  * @description 元数据管理界面
@@ -16,7 +17,7 @@ class Ysjgl extends React.Component {
     render() {
         return (
             <ColContainer>
-                <Card>
+                <Card title="字段配置" extra={<Jmpz />}>
                     
                 </Card>
             </ColContainer> 

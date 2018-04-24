@@ -22,4 +22,7 @@ const store = createStore(
     enhancer
   )
 
+  // then run the saga
+  // sagaMiddleware.run();
+
 export default store;
