@@ -1,3 +1,4 @@
 const ADD_TAB = "ADD_TAB";
-
-export default ADD_TAB 
+const TOGGLE_TAB = 'TOGGLE_TAB';
+const REMOVE_TAB = "REMOVE_TAB";
+export {ADD_TAB, TOGGLE_TAB, REMOVE_TAB };

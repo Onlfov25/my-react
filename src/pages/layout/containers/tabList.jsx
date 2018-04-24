@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Tabs } from 'antd';
+import { toggleActiveKey, removeTab } from '../actions.js';
 
 const { TabPane } = Tabs;
 
@@ -16,7 +17,9 @@ class TabList extends React.Component {
         this.props.onChange(activeKey);
     }
     handleOnEdit(activeKey, action) {
-       this.props.onEdit(activeKey, action)
+        if (action === 'remove') {
+            this.props.onEdit(activeKey)
+        }
     }
 
     render() {
@@ -30,7 +33,8 @@ class TabList extends React.Component {
 }
 
 TabList.defaultProps = {
-    panes: []
+    panes: [],
+    activeKey: '1'
 }
 TabList.propTypes = {
     activeKey: PropTypes.string,
@@ -41,11 +45,15 @@ TabList.propTypes = {
 
 
 const mapStateToProps = (state) => ({
-    panes: state.addTab.panes
+    panes: state.tabList.panes,
+    activeKey: state.tabList.activeKey
 })
 const mapDispatchToProps = (dispatch) => ({
     onChange: (activeKey) => {
-        dispatch()
+        dispatch(toggleActiveKey(activeKey))
+    },
+    onEdit: (activeKey) => {
+        dispatch(removeTab(activeKey))
     }
 
 })

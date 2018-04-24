@@ -1,15 +1,18 @@
-import ADD_TAB from './actionTypes.js'
-
+import { ADD_TAB, TOGGLE_TAB, REMOVE_TAB}  from './actionTypes.js'; 
 const initState = {
       panes: [{title: '首页', key: '1'}],
       activeKey: '1'
 }
-const  addTab = (state = initState, action) => {
+const  tabList = (state = initState, action) => {
     switch (action.type) {
         case ADD_TAB:
-            return { panes:[...state.panes, action.payload] }
+            return {...state, panes: [...state.panes, action.payload], activeKey: action.payload.key}
+        case TOGGLE_TAB:
+            return {...state, activeKey: action.payload}
+        case REMOVE_TAB:
+            return {...state, panes: state.panes.filter(pane => pane.key != action.payload), activeKey: '1' }
         default: 
             return state
     }
 }
-export default addTab
+export default tabList;

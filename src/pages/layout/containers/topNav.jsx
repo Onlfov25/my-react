@@ -9,6 +9,7 @@ import MenuList from './menuList.jsx';
 const { Header } = Layout;
 
 import '../../../images/首页未选中.png'
+import '../../../images/设置.png'
 /**
  * @description 头部导航栏
  * @author 傅兵 
@@ -53,7 +54,12 @@ class TopNav extends React.Component {
             {id: '3', imgSrc: '../../../images/首页未选中.png', title: '已归档', subMenus: [
                 {id: '1', url: 'login', title: '文件级档案'},
                 {id: '2', url: 'register', title: '案卷级档案'},
-            ]}
+            ]},
+            {id: '4', imgSrc: '../../../images/设置.png', title: '系统设置', subMenus: [
+                {id: '1', url: 'xtsz/dwxx', title: '单位信息'},
+                {id: '2', url: 'xtsz/ysjgl', title: '元数据管理'},
+            ]},
+
         ];
         
         return (

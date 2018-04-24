@@ -8,6 +8,7 @@ import './index.less';
 class Layout extends React.Component {
     constructor(props) {
         super(props)
+      
      
     }
 
@@ -17,7 +18,6 @@ class Layout extends React.Component {
                 <TopNav />
                 <TabList />
                 {this.props.children}
-                <span>{this.props.name}</span>
             </div>
         )
     }

@@ -1,19 +1,18 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as actions from '../actions.js';
-const { addTab } = actions;
+import { addTab } from '../actions.js';
 
 class MenuList extends React.Component {
     constructor(props) {
         super(props)
-        this.handleClcik = this.handleClcik.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClcik({item, key, keyPath}) {
-        console.log(item)
+    handleClick({item, key, keyPath}) {
+        // hashHistory.push(key);
        this.props.onClick({key: key, title: item.props.children.props.children}) 
     }
 
@@ -21,7 +20,7 @@ class MenuList extends React.Component {
         const { subMenus } = this.props;
         const length = subMenus.length - 1;
         return (
-            <Menu onClick={this.handleClcik}>
+            <Menu onClick={this.handleClick}>
                 {subMenus.map(subMenu => (
                         <Menu.Item key={subMenu.url}>
                             <Link to={subMenu.url}>{subMenu.title}</Link>
@@ -46,6 +45,6 @@ const mapStateToProps = (state) => ({
 
 })
 const mapDispatchToProps = (dispatch) => ({
-    onClick: (text) => dispatch(addTab(text))
+    onClick: (obj) => dispatch(addTab(obj))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(MenuList);

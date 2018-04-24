@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import addTab from '../pages/layout/reducers.js'
+import tabList from '../pages/layout/reducers.js'
 
 const initialState = {name: 'zhangsan', age: 18};
 const USERINFO_UPDATE = 'USERINFO_UPDATE';
@@ -14,6 +14,6 @@ const userinfo  = (state = initialState, action) => {
 
 const rootReducer = combineReducers({
     userinfo,
-    addTab
+    tabList
 })
 export default rootReducer;

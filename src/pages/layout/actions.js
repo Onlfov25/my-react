@@ -1,9 +1,20 @@
-import ADD_TAB from './actionTypes.js';
+import { ADD_TAB, TOGGLE_TAB, REMOVE_TAB  }  from './actionTypes.js'
 
 
-export function addTab(text) {
-    return {
+
+const addTab = (obj) => ({
         type: ADD_TAB,
-        payload: text
-    }
-}
+        payload: obj
+})
+
+const toggleActiveKey = (key) => ({
+        type: TOGGLE_TAB,
+        payload: key
+})
+
+const removeTab = (key) => ({
+        type: REMOVE_TAB,
+        payload: key
+})
+
+export {addTab, toggleActiveKey, removeTab};
