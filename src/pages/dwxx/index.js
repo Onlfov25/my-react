@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Form, Input, Icon, Button, Tooltip } from 'antd';
+import { Card, Form, Input, Icon, Button, Tooltip, message, notification } from 'antd';
+import InputTip from './inputTip.jsx';
 const FormItem = Form.Item;
 const { TextArea } = Input;
 
@@ -13,11 +14,43 @@ import './index.less';
 class Dwxx extends React.Component {
     constructor(props) {
         super(props)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.checkQzh = this.checkQzh.bind(this)
+        this.state = {
+            tip: false
+        }
     }
     
     //提交
     handleSubmit(e) {
         e.preventDefault();
+        // message.success("保存成功！")
+        notification.success({
+            message: '保存成功！',
+            placement: 'bottomRight'
+        })
+
+    }
+
+    checkQzh(rule, value, callback) {
+        console.log('hello')
+        const form = this.props.form;
+        var reg = /^(\w|\d){4,10}$/;
+        var len = value.length;
+        console.log(value, typeof value)
+        if (!value.match(reg) || value === '' || value == null) {
+            console.log("true")
+             this.setState({
+                tip: true
+             })
+            callback();
+        } else {
+            console.log("false")
+            this.setState({
+                tip: false
+            })
+            callback();
+        }
     }
 
     
@@ -48,23 +81,36 @@ class Dwxx extends React.Component {
         return (
             <Card title="单位信息" id="dwxx" >
                 <Form onSubmit={this.handleSubmit}>
-                    <FormItem label="全宗号" {...formItemLayout}  help="4-10个字符，支持数字、字母" extra="hello" hasFeedback>
+                    <FormItem label="全宗号" {...formItemLayout}   className={this.state.tip? 'has-error' : ''}>
                         {getFieldDecorator('qzh', {
-                            rules: [{
-                                required: true, message: '请输入全宗号！'
-                            }
+                            rules: [
+                               {
+                                validator: this.checkQzh
+                               }
                             ]
-                        })(<span><Input /><Tooltip title="3-10个字符"><Icon style={{fontSize: '20px', position: 'absolute',top: '2px'}} type="exclamation-circle" /></Tooltip></span>)}
+                        })(<span>
+                        <Input />
+                        {this.state.tip? <InputTip title="3到10个字符"/> : null}
+                        </span>)}
                     </FormItem>
-                    <FormItem label="单位名称" {...formItemLayout}>
+                    <FormItem label="单位名称" {...formItemLayout} required>
                         {getFieldDecorator('dwmc', {
                             rules: [{
-                                required: true, message: '请输入单位名称！'
+                                required: true, message: '请输入单位名称！',
+                            },{
+                                min: 3
+                            },{
+                                max: 10
                             }
                             ]
-                        })(<Input />)}
+                        })(<span><Input />
+                                <Tooltip title={<span><Icon  style={{color: 'red'}} type="exclamation-circle"/>3到10个字符</span>}>
+		                        <Icon style={{fontSize: '20px', position: 'absolute',top: '1px', color: 'red'}} type="exclamation-circle" />
+                            </Tooltip>
+                            </span>
+                )}
                     </FormItem>
-                    <FormItem label="联系人" {...formItemLayout}>
+                    <FormItem label="联系人" {...formItemLayout} required hasFeedback>
                         <Input />
                     </FormItem>
                     <FormItem label="联系方式" {...formItemLayout}>
