@@ -24,9 +24,8 @@ class TabList extends React.Component {
 
     render() {
         return (
-            
-            <Tabs type="editable-card" hideAdd onChange={this.handleTabChange} activeKey={this.props.activeKey} onEdit={this.handleOnEdit}>
-                {this.props.panes.map(pane => <TabPane tab={pane.title} key={pane.key}></TabPane>)}
+            <Tabs className="tabList" type="editable-card" hideAdd onChange={this.handleTabChange} activeKey={this.props.activeKey} onEdit={this.handleOnEdit}>
+                {this.props.panes.map((pane, index) => <TabPane  className={index === 0 ? 'indexTab' : 'no'} tab={pane.title} key={pane.key}></TabPane>)}
             </Tabs>
         )
     }

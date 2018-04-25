@@ -49,48 +49,59 @@ class EditableTable extends React.Component {
         this.columns = [{
             title: '名称',
             dataIndex: 'name',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'name'),
           }, {
             title: '代码',
             dataIndex: 'code',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'code'),
           }, {
             title: '类型',
             dataIndex: 'type',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'type'),
           }, {
             title: '说明',
             dataIndex: 'description',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'description'),
           },{
             title: '默认值',
             dataIndex: 'default',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'default'),
           },{
             title: '字典',
             dataIndex: 'dictionary',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'dictionary'),
           },{
             title: '是否为空',
             dataIndex: 'isNull',
+            width: '8%',
             render: () => <Switch />
             // render: (text, record) => this.renderColumns(text, record, 'isNull'),
           },{
             title: '长度区间',
             dataIndex: 'len',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'len'),
           }, {
             title: '格式',
             dataIndex: 'mode',
+            width: '8%',
             render: (text, record) => this.renderColumns(text, record, 'mode'),
           },{
             title: '编辑显示',
             dataIndex: 'editShow',
+            width: '8%',
             render: () => <Switch defaultChecked />
             // render: (text, record) => this.renderColumns(text, record, 'editShow'),
           }, {
             title: '列表显示',
             dataIndex: 'listShow',
+            width: '8%',
             render: () => <Switch />
             // render: (text, record) => this.renderColumns(text, record, 'listShow'),
           }, {
@@ -197,7 +208,7 @@ class EditableTable extends React.Component {
     }
   }
   render() {
-    return <Table bordered dataSource={this.state.data} columns={this.columns} rowSelection={this.props.rowSelection}/>;
+    return <Table id="editTable" bordered dataSource={this.state.data} columns={this.columns} rowSelection={{}}/>;
   }
 }
 

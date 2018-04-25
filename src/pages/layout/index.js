@@ -11,12 +11,14 @@ class Layout extends React.Component {
       
      
     }
-
+    componentWillMount() {
+        
+    }
     render() {
         return (
             <div>
                 <TopNav />
-                <TabList />
+                <TabList/>
                 {this.props.children}
             </div>
         )
