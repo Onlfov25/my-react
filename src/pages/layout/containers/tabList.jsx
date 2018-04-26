@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import { Tabs } from 'antd';
 import { toggleActiveKey, removeTab } from '../actions.js';
@@ -15,10 +16,13 @@ class TabList extends React.Component {
 
     handleTabChange(activeKey) {
         this.props.onChange(activeKey);
+        hashHistory.push(activeKey);
     }
+
     handleOnEdit(activeKey, action) {
         if (action === 'remove') {
             this.props.onEdit(activeKey)
+            hashHistory.push("home");
         }
     }
 

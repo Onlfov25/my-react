@@ -102,7 +102,7 @@ class Ysjgl extends React.Component {
             <ColContainer>
                 <Card title="字段配置" extra={<Jmpz />} id="zdpz">
                     {/* <EditableTable title={() => editBtn }  rowSelection={{}} columns={columns} dataSource={data} /> */}
-                    <EditableTable dataSource={data}/>
+                    <EditableTable dataSource={data} title={() => editBtn }/>
                 </Card>
             </ColContainer> 
         )

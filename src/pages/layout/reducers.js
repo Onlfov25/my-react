@@ -1,7 +1,7 @@
 import { ADD_TAB, TOGGLE_TAB, REMOVE_TAB}  from './actionTypes.js'; 
 const initState = {
-      panes: [{title: '首页', key: '1'}],
-      activeKey: '1'
+      panes: [{title: '首页', key: 'home'}],
+      activeKey: 'home'
 }
 const  tabList = (state = initState, action) => {
     switch (action.type) {
@@ -10,7 +10,7 @@ const  tabList = (state = initState, action) => {
         case TOGGLE_TAB:
             return {...state, activeKey: action.payload}
         case REMOVE_TAB:
-            return {...state, panes: state.panes.filter(pane => pane.key != action.payload), activeKey: '1' }
+            return {...state, panes: state.panes.filter(pane => pane.key != action.payload), activeKey: 'home' }
         default: 
             return state
     }

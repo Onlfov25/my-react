@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
+import { createLogger } from 'redux-logger';
 
 const sagaMiddleware = createSagaMiddleware();
+const logger = createLogger();
 
-const middleware = [sagaMiddleware];
+const middleware = [sagaMiddleware, logger];
 
 const composeEnhancers =
   typeof window === 'object' &&

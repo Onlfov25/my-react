@@ -44,8 +44,8 @@ module.exports = {
     devServer: {
         //凡是 '/dangan'  开头的http请求，都会被代理到 localhost:8080上
         proxy: {
-            "/base": {
-                target: "http://c.y.qq.com/",
+            "/flow": {
+                target: "http://192.168.88.3:22",
                 secure: false,  //表示能否请求 https 的服务器
                 changeOrigin: true  //表示是否支持跨域请求，默认 false
             }

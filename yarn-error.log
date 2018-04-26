@@ -1,5 +1,5 @@
 Arguments: 
-  D:\dev\nodejs\node.exe D:\dev\nodejs\node_global\node_modules\yarn\bin\yarn.js add babel-plugin-transform-object-rest-spread --dev
+  D:\dev\nodejs\node.exe D:\dev\nodejs\node_global\node_modules\yarn\bin\yarn.js add ' redux-logger
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Java\jdk1.6.0_20\bin;C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin;D:\Git\cmd;D:\TortoiseSVN\bin;D:\instantclient_10_2;D:\TortoiseGit\bin;D:\dev\nodejs\;D:\dev\nodejs\node_global;;C:\Users\lyn\AppData\Roaming\npm;D:\Microsoft VS Code\bin
@@ -60,7 +60,7 @@ npm manifest:
       "babel-core": "^6.26.0",
       "babel-loader": "^7.1.4",
       "babel-plugin-import": "^1.7.0",
-      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-polyfill": "^6.26.0",
       "babel-preset-env": "^1.6.1",
       "babel-preset-react": "^6.24.1",
@@ -673,6 +673,10 @@ Lockfile:
     version "6.18.0"
     resolved "http://registry.npm.taobao.org/babel-plugin-syntax-jsx/download/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
   
+  babel-plugin-syntax-object-rest-spread@^6.8.0:
+    version "6.13.0"
+    resolved "http://registry.npm.taobao.org/babel-plugin-syntax-object-rest-spread/download/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
+  
   babel-plugin-syntax-trailing-function-commas@^6.22.0:
     version "6.22.0"
     resolved "http://registry.npm.taobao.org/babel-plugin-syntax-trailing-function-commas/download/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
@@ -868,6 +872,13 @@ Lockfile:
       babel-plugin-syntax-flow "^6.18.0"
       babel-runtime "^6.22.0"
   
+  babel-plugin-transform-object-rest-spread@^6.26.0:
+    version "6.26.0"
+    resolved "http://registry.npm.taobao.org/babel-plugin-transform-object-rest-spread/download/babel-plugin-transform-object-rest-spread-6.26.0.tgz#0f36692d50fef6b7e2d4b3ac1478137a963b7b06"
+    dependencies:
+      babel-plugin-syntax-object-rest-spread "^6.8.0"
+      babel-runtime "^6.26.0"
+  
   babel-plugin-transform-react-display-name@^6.23.0:
     version "6.25.0"
     resolved "http://registry.npm.taobao.org/babel-plugin-transform-react-display-name/download/babel-plugin-transform-react-display-name-6.25.0.tgz#67e2bf1f1e9c93ab08db96792e05392bf2cc28d1"
@@ -901,12 +912,6 @@ Lockfile:
     resolved "http://registry.npm.taobao.org/babel-plugin-transform-regenerator/download/babel-plugin-transform-regenerator-6.26.0.tgz#e0703696fbde27f0a3efcacf8b4dca2f7b3a8f2f"
     dependencies:
       regenerator-transform "^0.10.0"
-  
-  babel-plugin-transform-runtime@^6.23.0:
-    version "6.23.0"
-    resolved "http://registry.npm.taobao.org/babel-plugin-transform-runtime/download/babel-plugin-transform-runtime-6.23.0.tgz#88490d446502ea9b8e7efb0fe09ec4d99479b1ee"
-    dependencies:
-      babel-runtime "^6.22.0"
   
   babel-plugin-transform-strict-mode@^6.24.1:
     version "6.24.1"
@@ -7948,4 +7953,11 @@ Lockfile:
       fd-slicer "~1.0.1"
 
 Trace: 
-  Error: EPERM: operation not permitted, lstat 'D:\dev\my-react\node_modules\ansi-html'
+  Error: Couldn't find package "'" on the "npm" registry.
+      at new MessageError (D:\dev\nodejs\node_global\node_modules\yarn\lib\cli.js:186:110)
+      at NpmResolver.<anonymous> (D:\dev\nodejs\node_global\node_modules\yarn\lib\cli.js:51625:15)
+      at Generator.next (<anonymous>)
+      at step (D:\dev\nodejs\node_global\node_modules\yarn\lib\cli.js:98:30)
+      at D:\dev\nodejs\node_global\node_modules\yarn\lib\cli.js:109:13
+      at <anonymous>
+      at process._tickCallback (internal/process/next_tick.js:188:7)

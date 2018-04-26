@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, Form, Input, Icon, Button, Tooltip, message, notification } from 'antd';
 import InputTip from './inputTip.jsx';
+import axios from 'axios';
 const FormItem = Form.Item;
 const { TextArea } = Input;
+
 
 import './index.less';
 /**
@@ -19,6 +21,12 @@ class Dwxx extends React.Component {
         this.state = {
             tip: false
         }
+    }
+
+    componentWillMount() {
+        axios.get('/flow/expenseType/list')
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
     }
     
     //提交

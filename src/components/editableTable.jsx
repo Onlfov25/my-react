@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Input, Popconfirm, Switch } from 'antd';
 import './editableTable.less';
-
+import '../images/hon.png';
 const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
@@ -22,7 +22,7 @@ for (let i = 0; i < 100; i++) {
 const EditableCell = ({ editable, value, onChange }) => (
   <div>
     {editable
-      ? <Input style={{ margin: '-5px 0' }} value={value} onChange={e => onChange(e.target.value)} />
+        ? <span style={{position: 'relative'}}><Input style={{ margin: '-5px 0' }} value={value} onChange={e => onChange(e.target.value)} /><img src="../images/hon.png"/></span>
       : value
     }
   </div>
@@ -208,8 +208,7 @@ class EditableTable extends React.Component {
     }
   }
   render() {
-    return <Table id="editTable" bordered dataSource={this.state.data} columns={this.columns} rowSelection={{}}/>;
+    return <Table id="editTable" title={this.props.title} bordered dataSource={this.state.data} columns={this.columns} rowSelection={{}}/>;
   }
 }
-
 export default EditableTable;
