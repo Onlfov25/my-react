@@ -6,6 +6,7 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Dwxx from './pages/dwxx';
 import Ysjgl from './pages/ysjgl';
+import InputTip from './components/InputTip.jsx';
 
 export default () => {
     return (
@@ -18,6 +19,7 @@ export default () => {
             </Route>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/test" component={InputTip} />
         </Router>
     )
 }
