@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 import { createLogger } from 'redux-logger';
+import Immutable from 'immutable';
 
 const sagaMiddleware = createSagaMiddleware();
 const logger = createLogger();
@@ -20,7 +21,8 @@ const enhancer = composeEnhancers(
 
 
 const store = createStore(
-    rootReducer, 
+    rootReducer,
+    // Immutable.Map({}),
     enhancer
   )
 

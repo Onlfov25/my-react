@@ -1,6 +1,7 @@
-// import { combineReducers } from 'redux';
-import { combineReducers } from 'redux-immutable';
-import tabList from '../pages/layout/reducers.js'
+import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux-immutable';
+import Immutable from 'immutable';
+import tabList from '../pages/layout/reducers.js';
 
 const initialState = {name: 'zhangsan', age: 18};
 const USERINFO_UPDATE = 'USERINFO_UPDATE';

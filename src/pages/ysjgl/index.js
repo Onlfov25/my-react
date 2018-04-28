@@ -1,7 +1,8 @@
 import React from 'react';
 import ColContainer from '../../components/colContainer.jsx';
 import { Card, Dropdown, Table, Button } from 'antd';
-import EditableTable from '../../components/editableTable.jsx';
+// import EditableTable from '../../components/editableTable.jsx';
+import DbEdit from '../../components/dbEdit.jsx';
 import Jmpz from './containers/jmpz.jsx';
 import './index.less';
 
@@ -102,7 +103,8 @@ class Ysjgl extends React.Component {
             <ColContainer>
                 <Card title="字段配置" extra={<Jmpz />} id="zdpz">
                     {/* <EditableTable title={() => editBtn }  rowSelection={{}} columns={columns} dataSource={data} /> */}
-                    <EditableTable dataSource={data} title={() => editBtn }/>
+                    {/* <EditableTable dataSource={data} title={() => editBtn }/> */}
+                      <DbEdit />
                 </Card>
             </ColContainer> 
         )
