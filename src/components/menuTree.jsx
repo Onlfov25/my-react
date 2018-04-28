@@ -18,23 +18,51 @@ class MenuTree extends React.Component {
     constructor(props) {
         super(props)
         this.createMenu = this.createMenu.bind(this)
+        this.renderMenuItem = this.renderMenuItem.bind(this)
+        this.renderSubMenu = this.renderSubMenu.bind(this)
         this.onOpenChange = this.onOpenChange.bind(this)
+        this.renderMenu = this.renderMenu.bind(this)
         this.state = {
             openKeys : []
         }
     }
     
-    createMenu(menu) {
-        {
-             menu.map(item => {
-                if ( item.children && item.children.length > 0) {
-                return <SubMenu key={item.key} title={<span><Icon type="folder-open" />{item.title}</span>}></SubMenu>
-               }
-            })
-        }
+    // createMenu(menu) {
+    //     {
+    //          menu.map(item => {
+    //             if ( item.children && item.children.length > 0) {
+    //             return <SubMenu key={item.key} title={<span><Icon type="folder-open" />{item.title}</span>}></SubMenu>
+    //            }
+    //         })
+    //     }
+    // }
+
+    //渲染目录文件
+    renderMenuItem(item) {
+         return <Menu.Item key={item.key}><Icon type="file-text" />{item.title}</Menu.Item>
     }
+
+    //渲染目录文件夹
+    renderSubMenu(item) {
+         return (<SubMenu key={item.key} title={<span><img src={(this.state.openKeys.indexOf(item.key) != -1) ? checked : unChecked}/><Icon type="folder-open" />{item.title}</span>}>
+                {/*{this.createMenu(item.children)}*/}
+            </SubMenu>)
+        
+   }
+
+   renderMenu(item) {
+      
+   }
+   //创建目录树
+   createMenu(menu) {
+        menu.map(function(item, index){
+      
+                 return <Menu.Item key={item.key}><Icon type="file-text" />{item.title}</Menu.Item>
+            
+        })
+    }
+         
     onOpenChange(openKeys) {
-        console.log(openKeys)
         this.setState({
             openKeys: [...openKeys]
         })
@@ -76,32 +104,17 @@ class MenuTree extends React.Component {
             {
                 key: '人事档案', title: '人事档案'
             }
-        ]
+        ];
+
         return (
             <Menu style={{width: 200}} mode="inline" onOpenChange={this.onOpenChange}>
                 <SubMenu key="文件夹" title={<span><img src={(this.state.openKeys.indexOf('文件夹') != -1) ? checked : unChecked}/><Icon type="folder-open" />文件夹</span>}>
+                     
                         {
-
-                          SiderMenu.map(item => {
-                                if ( item.children && item.children.length > 0) {
-                                return (<SubMenu key={item.key} title={<span><img src={(this.state.openKeys.indexOf(item.key) != -1) ? checked : unChecked}/><Icon type="folder-open" />{item.title}</span>}>
-                                    {
-                                        item.children.map(tem => {
-                                            if (tem.children && tem.children.length > 0) {
-                                                return <SubMenu key={tem.key} title={<span><Icon type="folder-open" />{tem.title}</span>}></SubMenu>
-                                            } else {
-                                                return <Menu.Item key={tem.key}><Icon type="file-text" />{tem.title}</Menu.Item>
-                                            }
-                                        })
-                                    }
-                                </SubMenu>)
-                               } else {
-                                return <Menu.Item key={item.key}><Icon type="file-text" />{item.title}</Menu.Item>
-                               }
-                            })
-
+                          this.createMenu(SiderMenu)
                         }
                 </SubMenu>
+             
             </Menu>
         )
     }
