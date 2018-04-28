@@ -27,7 +27,7 @@ class Layout extends React.Component {
 
 const mapStateToProps = (state) => ({
     // name: state.get(['userinfo', 'name']),
-    name: state.userinfo.name
+    // name: state.userinfo.name
 })
 const mapDispatchToProps = (dispatch) => ({
 

@@ -22,7 +22,7 @@ const enhancer = composeEnhancers(
 
 const store = createStore(
     rootReducer,
-    // Immutable.Map({}),
+    Immutable.Map({}),
     enhancer
   )
 

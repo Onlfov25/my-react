@@ -88,7 +88,17 @@ class MenuTree extends React.Component {
                                     {
                                         item.children.map(tem => {
                                             if (tem.children && tem.children.length > 0) {
-                                                return <SubMenu key={tem.key} title={<span><Icon type="folder-open" />{tem.title}</span>}></SubMenu>
+                                                return <SubMenu key={tem.key} title={<span><img src={(this.state.openKeys.indexOf(item.key) != -1) ? checked : unChecked}/><Icon type="folder-open" />{tem.title}</span>}>
+                                                  {
+                                                      tem.children.map(em => {
+                                                        if (em.children && em.children.length > 0) {
+                                                            return <SubMenu key={em.key} title={<span><Icon type="folder-open" />{em.title}</span>}></SubMenu>
+                                                        } else {
+                                                            return <Menu.Item key={em.key}><Icon type="file-text" />{em.title}</Menu.Item>
+                                                        }
+                                                      })
+                                                  }
+                                                </SubMenu>
                                             } else {
                                                 return <Menu.Item key={tem.key}><Icon type="file-text" />{tem.title}</Menu.Item>
                                             }

@@ -37,7 +37,7 @@ class TabList extends React.Component {
 
 TabList.defaultProps = {
     panes: [],
-    activeKey: '1'
+    activeKey: 'home'
 }
 TabList.propTypes = {
     activeKey: PropTypes.string,
@@ -48,8 +48,10 @@ TabList.propTypes = {
 
 
 const mapStateToProps = (state) => ({
-    panes: state.tabList.panes,
-    activeKey: state.tabList.activeKey
+    // panes: state.tabList.panes,
+    // activeKey: state.tabList.activeKey
+    panes: state.getIn(['tabList', 'panes']),
+    activeKey: state.getIn(['tabList', 'activeKey'])
 })
 const mapDispatchToProps = (dispatch) => ({
     onChange: (activeKey) => {
