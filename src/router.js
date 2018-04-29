@@ -9,10 +9,13 @@ import { view as Ysjgl} from './pages/ysjgl';
 import DbEdit from './components/DbEdit.jsx';
 import MenuTree from './components/menuTree.jsx';
 import Notfind from './pages/notfind';
-
+import { syncHistoryWithStore } from 'react-router-redux';
+import store from './store.js';
+const history = syncHistoryWithStore(hashHistory, store);
 export default () => {
+
     return (
-        <Router history={hashHistory}>
+        <Router history={history}>
             <Route path="/" component={Layout}>
                 <IndexRoute component={Home} />
                 <Route path="home" component={Home} />
