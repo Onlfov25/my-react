@@ -15,7 +15,7 @@ const userinfo  = (state = initialState, action) => {
 }
 
 const rootReducer = combineReducers({
-    userinfo,
-    tabList
+    userinfo: userinfo,
+    tabList: tabList
 })
 export default rootReducer;

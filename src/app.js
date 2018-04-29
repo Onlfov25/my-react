@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store.js';
 import { LocaleProvider } from 'antd';
-import Router from './router.js';
+import Routes from './router.js';
 
 import './app.less';
 
@@ -18,7 +18,7 @@ moment.locale('zh-cn');
 ReactDOM.render(
    <Provider store={store}>
        <LocaleProvider locale={zhCN}>
-           <Router />
+           <Routes />
        </LocaleProvider>
    </Provider>,
     document.getElementById('root')

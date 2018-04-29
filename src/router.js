@@ -1,13 +1,14 @@
 import React from 'react';
-import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
+import { Router, Route, Link, hashHistory, IndexRoute, browserHistory } from 'react-router';
 import Layout from './pages/layout';
 import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
 import Dwxx from './pages/dwxx';
-import Ysjgl from './pages/ysjgl';
+import { view as Ysjgl} from './pages/ysjgl';
 import DbEdit from './components/DbEdit.jsx';
 import MenuTree from './components/menuTree.jsx';
+import Notfind from './pages/notfind';
 
 export default () => {
     return (
@@ -22,6 +23,7 @@ export default () => {
             <Route path="/register" component={Register} />
             <Route path="/test" component={DbEdit} />
             <Route path="/tree" component={MenuTree} />
+            <Route path="*" component={Notfind} />
         </Router>
     )
 }
